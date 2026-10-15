@@ -1,0 +1,26 @@
+/* =========================================================
+   Animation helpers — initial states only apply while JS/GSAP is running
+   (html.js is removed automatically if GSAP fails to load)
+   ========================================================= */
+.js .hero-in, .js [data-hero="line"] { visibility: hidden; }
+.js [data-img-reveal] { clip-path: inset(0 0 100% 0); }
+.js [data-img-reveal].is-in { clip-path: none; }
+.js .stat, .js [data-reveal], .js [data-reveal-item], .js .why__item { will-change: transform, opacity; }
+
+.is-ready [data-img-reveal] { will-change: clip-path; }
+.parallax-img { will-change: transform; transform: scale(1.12); }
+
+/* Mobile / touch: keep things light — no heavy transforms */
+@media (max-width: 1024px) {
+  .parallax-img { transform: scale(1.06); }
+}
+
+/* Reduced motion — everything visible, nothing moves */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .js .hero-in, .js [data-hero="line"] { visibility: visible; }
+  .js [data-img-reveal] { clip-path: none; }
+  .intro__text .word { opacity: 1; }
+  .parallax-img { transform: none; }
+  .ticker__track { animation: none; }
+}
