@@ -89,7 +89,8 @@ window.GYM = window.GYM || {};
     };
     const upd = () => fab.classList.toggle('is-on', (window.scrollY || 0) > after() && !hidden);
     window.addEventListener('scroll', upd, { passive: true });
-    const io = new IntersectionObserver((es) => { es.forEach((e) => { hidden += e.isIntersecting ? 1 : -1; }); hidden = Math.max(0, hidden); upd(); });
+    const seen = new Set();
+    const io = new IntersectionObserver((es) => { es.forEach((e) => { e.isIntersecting ? seen.add(e.target) : seen.delete(e.target); }); hidden = seen.size; upd(); });
     ['#join', '.footer'].forEach((q) => { const el = $(q); el && io.observe(el); });
     upd();
   }

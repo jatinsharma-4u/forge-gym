@@ -11,7 +11,7 @@
   --acc-deep: #A9D112;
   --line: rgba(17, 17, 17, .12);
   --ph: #E4E4DE;           /* image placeholder */
-  --f-display: 'Archivo', 'Anton', Impact, sans-serif;
+  --f-display: 'Big Shoulders Display', 'Oswald', Impact, sans-serif;
   --f-ui: 'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --gut: clamp(16px, 3.2vw, 44px);
   --max: 1440px;
@@ -639,7 +639,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* page curtain (transition between pages) */
 .curtain { position: fixed; inset: 0; z-index: 500; background: var(--acc); display: none; place-items: center; pointer-events: none; }
 .curtain span { font-family: var(--f-display); font-variation-settings: "wdth" 80; font-weight: 900; font-size: clamp(3rem, 10vw, 7rem); letter-spacing: .05em; }
-.js .curtain { display: grid; }
+
 .contact { padding-top: clamp(56px, 8vw, 110px); }
 
 /* =====================================================================
@@ -1208,4 +1208,64 @@ body { font-size: clamp(16px, .5vw + 11.6px, 18px); }
 @media (max-width: 1024px) {
   .nav.is-stuck .nav__bar { width: calc(100% - 16px); margin: 6px 8px 0; padding-inline: 12px; height: 56px; }
   .nav--over .nav__bar { width: 100%; }
+}
+
+/* =================== v15: sports display font (Big Shoulders Display) =================== */
+.h2,.h3,.hero__title,.cta__title,.intro__text,.footer__big,.stat__n,blockquote,.logo__text,.plan__name,.plan__price .amt,.eq__meta h3,.tr__body h3,.prog__t,.why__item h3,.ba__meta h3,.about__badge strong,.hero__chip strong,.drawer li a,.hs__end p,.form__head h3,.success h3,.eq__no,.fac__item .h3,.phero__title,.fcta__t,.val h3,.step h3,.tl__year,.tl__item h3,.band__track,.hero__brand span,.mapsec__card h3,.rating b,.step__no,.curtain span {
+  font-variation-settings: normal; font-family: var(--f-display); font-weight: 800; letter-spacing: .01em; text-transform: uppercase;
+}
+.hero__title, .cta__title, .footer__big, .intro__text, .phero__title, .hero__brand span, .band__track { font-weight: 900; letter-spacing: .005em; }
+.logo__text { font-weight: 900; letter-spacing: .06em; font-size: 1.6rem; }
+/* narrower face → scale the display sizes up so presence stays strong */
+.h2 { font-size: clamp(2.7rem, 4.4vw + .7rem, 4.9rem); line-height: .92; }
+.phero__title { font-size: clamp(3rem, 6.2vw + .5rem, 6.4rem); line-height: .9; }
+.hero__title { font-size: clamp(3.6rem, 8.4vw + .5rem, 9.2rem); line-height: .86; }
+.intro__text { font-size: clamp(2.5rem, 4.8vw + .5rem, 4.7rem); line-height: 1; }
+.cta__title { font-size: clamp(3.2rem, 7.6vw, 6.8rem); line-height: .88; }
+.fac__item .h3 { font-size: clamp(3rem, 4.8vw, 4.6rem); }
+.prog__t { font-size: clamp(1.9rem, 3.8vw, 3.3rem); }
+.why__item h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.stat__n { font-size: clamp(3.2rem, 5.4vw, 5rem); }
+.plan__name { font-size: 2.2rem; }
+.plan__price .amt { font-size: clamp(3.2rem, 4.2vw, 4rem); }
+.val h3 { font-size: clamp(1.9rem, 2.6vw, 2.4rem); }
+.step h3 { font-size: clamp(1.7rem, 2.3vw, 2.1rem); }
+.eq__meta h3 { font-size: clamp(1.5rem, 2vw, 1.9rem); }
+.tr__body h3 { font-size: clamp(1.7rem, 2.2vw, 2.1rem); }
+.form__head h3 { font-size: clamp(2.1rem, 3.4vw, 2.8rem); }
+.fcta__t { font-size: clamp(2.4rem, 4.6vw, 3.9rem); }
+.band__track { font-size: clamp(4rem, 12vw, 10.4rem); }
+.footer__big { font-size: clamp(3rem, 10vw, 10.4rem); }
+.quote blockquote, .rv blockquote { text-transform: none; }
+.rv blockquote { font-family: var(--f-ui); font-weight: 500; letter-spacing: 0; }
+.nav__link, .btn, .eyebrow { font-family: var(--f-ui); }
+@media (max-width: 767px) {
+  .h2 { font-size: clamp(2.3rem, 10vw, 3rem); }
+  .phero__title { font-size: clamp(2.6rem, 12.4vw, 3.6rem); }
+  .hero__title { font-size: clamp(3.2rem, 15.6vw, 5.2rem); }
+  .intro__text { font-size: clamp(2.3rem, 10.4vw, 3.2rem); }
+  .cta__title { font-size: clamp(3rem, 14vw, 4.4rem); }
+  .fac__item .h3 { font-size: clamp(2.6rem, 11vw, 3.4rem); }
+  .prog__t { font-size: clamp(1.7rem, 7.8vw, 2.2rem); }
+  .band__track { font-size: clamp(3rem, 16vw, 4.8rem); }
+  .footer__big { font-size: clamp(2.8rem, 13vw, 4.6rem); }
+}
+
+/* =================== v16: compact form selectors =================== */
+.form { gap: 16px; }
+.field label, .field legend { font-size: .68rem; margin-bottom: 7px; }
+.chips-in { gap: 6px; }
+.chip span { padding: 8px 13px; font-size: .82rem; font-weight: 600; letter-spacing: 0; text-transform: none; line-height: 1.2; border-width: 1.5px; }
+.chip input:checked + span { box-shadow: 0 0 0 2px var(--acc); }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"], .field textarea { padding: 12px 14px; font-size: .96rem; }
+.field textarea { min-height: 76px; }
+.form__head p { font-size: .9rem; }
+.form__head h3 { margin-bottom: 2px; }
+.consent { font-size: .82rem; }
+.formcard { padding: clamp(20px, 2.6vw, 36px); }
+@media (max-width: 767px) {
+  .form { gap: 14px; }
+  .chip span { padding: 7px 11px; font-size: .78rem; }
+  .intro__text { font-size: clamp(1.9rem, 8.4vw, 2.5rem); }
+  .formcard { padding: 18px 14px; }
 }

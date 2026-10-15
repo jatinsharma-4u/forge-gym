@@ -41,7 +41,7 @@ window.GYM = window.GYM || {};
     const lines = $$('[data-hero="line"]'), label = $('[data-hero="label"]'), text = $('[data-hero="text"]'),
       cta = $('[data-hero="cta"]'), chips = $$('[data-hero="chip"]');
 
-    const tl = gsap.timeline({ defaults: { ease: EASE }, delay: .5 });
+    const tl = gsap.timeline({ defaults: { ease: EASE }, delay: .15 });
     tl.fromTo(frame, { clipPath: 'inset(8% 8% 8% 8% round 18px)' }, { clipPath: 'inset(0% 0% 0% 0% round 10px)', duration: 1.5, clearProps: 'clipPath' })
       .fromTo(media, { scale: 1.3 }, { scale: 1, duration: 2.2 }, 0)
       .fromTo(lines, { yPercent: 115, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 1.3, stagger: .12 }, .65)
@@ -235,7 +235,7 @@ window.GYM = window.GYM || {};
 
   /* ---------- Mobile-safe, lightweight section reveals ---------- */
   function initSectionTransitions() {
-    if ($('.strip')) gsap.from('.strip', { yPercent: 100, duration: 1, ease: EASE, delay: 1.9 });
+    if ($('.strip')) gsap.from('.strip', { yPercent: 100, duration: 1, ease: EASE, delay: 1.2 });
     // plans sequential reveal handled by [data-reveal-group]; testimonials fade
     if ($('.testi__stage')) gsap.from('.testi__stage', { autoAlpha: 0, y: 60, duration: 1.2, ease: 'power3.out', scrollTrigger: { trigger: '.testi__stage', start: 'top 85%', once: true } });
     gsap.from('.footer__big span', { yPercent: 110, duration: 1.3, ease: EASE, stagger: .12, scrollTrigger: { trigger: '.footer__big', start: 'top 92%', once: true } });
@@ -274,7 +274,7 @@ window.GYM = window.GYM || {};
   function initNavIntro() {
     const items = $$('.nav .logo, .nav__menu li, .nav__cta, .burger');
     if (!items.length) return;
-    gsap.from(items, { y: -26, autoAlpha: 0, duration: .9, stagger: .05, delay: .95, ease: EASE, clearProps: 'transform,opacity,visibility' });
+    gsap.from(items, { y: -26, autoAlpha: 0, duration: .9, stagger: .05, delay: .3, ease: EASE, clearProps: 'transform,opacity,visibility' });
   }
 
   /* ---------- inner-page hero: title/lead drift at different speeds ---------- */

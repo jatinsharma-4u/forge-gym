@@ -18,7 +18,6 @@
     G.components.initOpenStatus();
     G.components.initFaq();
     G.interactions.initNavMenu();
-    G.interactions.initPageTransitions();
     G.scroll.initNavState();
     G.scroll.initFab();
 
