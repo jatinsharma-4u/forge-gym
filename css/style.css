@@ -1197,3 +1197,15 @@ body { font-size: clamp(16px, .5vw + 11.6px, 18px); }
 .phero__img { width: 100%; aspect-ratio: auto !important; max-height: none !important; height: clamp(240px, 30vw, 460px); }
 .phero .wrap + .wrap { margin-top: 0; }
 @media (max-width: 767px) { .phero__img { height: clamp(200px, 56vw, 300px); } }
+
+/* =================== v14: cleaner, solid navbar =================== */
+.nav.is-stuck .nav__bar { height: 60px; background: rgba(250,250,247,.97); -webkit-backdrop-filter: saturate(1.4) blur(18px); backdrop-filter: saturate(1.4) blur(18px); border: 1px solid rgba(17,17,17,.1); box-shadow: 0 14px 34px -16px rgba(17,17,17,.35); border-radius: 16px; }
+.nav.is-stuck .logo__text { font-size: 1.35rem; }
+.nav.is-stuck .logo__mark { width: 28px; height: 28px; }
+.nav__link.is-active { font-weight: 800; }
+.nav__link.is-active::after { height: 3px; background: var(--acc); box-shadow: 0 1.5px 0 var(--ink); }
+.nav--over .nav__link.is-active::after { box-shadow: none; }
+@media (max-width: 1024px) {
+  .nav.is-stuck .nav__bar { width: calc(100% - 16px); margin: 6px 8px 0; padding-inline: 12px; height: 56px; }
+  .nav--over .nav__bar { width: 100%; }
+}
