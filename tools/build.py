@@ -480,9 +480,9 @@ def contact():
 def form_card():
     goals = ['Build muscle', 'Lose fat', 'Get stronger', 'Improve fitness', 'Sports performance']
     trains = ['Gym floor', 'Group classes', 'Personal training', 'Not sure yet']
-    g = "".join(f'<label class="chip"><input type="radio" name="goal" value="{x}" {"required" if i == 0 else ""}><span>{x}</span></label>' for i, x in enumerate(goals))
-    t = "".join(f'<label class="chip"><input type="radio" name="training" value="{x}"><span>{x}</span></label>' for x in trains)
-    sl = "".join(f'<label class="chip"><input type="radio" name="slot" value="{x}"><span>{x}</span></label>' for x in ['Morning', 'Afternoon', 'Evening'])
+    g = ''.join(f'<option>{x}</option>' for x in goals)
+    t = ''.join(f'<option>{x}</option>' for x in trains)
+    sl = ''.join(f'<option>{x}</option>' for x in ['Morning', 'Afternoon', 'Evening'])
     return f'''
     <div class="formcard" data-reveal>
       <form class="form" id="joinForm" novalidate>
@@ -492,9 +492,11 @@ def form_card():
           <div class="field"><label for="f-phone">Phone number</label><div class="phone"><span>+91</span><input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="98765 43210" required maxlength="11"></div><p class="err" role="alert"></p></div>
         </div>
         <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required><p class="err" role="alert"></p></div>
-        <fieldset class="field"><legend>Your fitness goal</legend><div class="chips-in">{g}</div><p class="err" role="alert"></p></fieldset>
-        <fieldset class="field"><legend>Preferred training <em>(optional)</em></legend><div class="chips-in">{t}</div></fieldset>
-        <fieldset class="field"><legend>Best time to call <em>(optional)</em></legend><div class="chips-in">{sl}</div></fieldset>
+        <div class="form__row form__row--3">
+          <div class="field"><label for="f-goal">Fitness goal</label><div class="sel"><select id="f-goal" name="goal" required><option value="" selected disabled>Select goal</option>{g}</select></div><p class="err" role="alert"></p></div>
+          <div class="field"><label for="f-train">Training <em>(optional)</em></label><div class="sel"><select id="f-train" name="training"><option value="" selected>No preference</option>{t}</select></div></div>
+          <div class="field"><label for="f-slot">Call me <em>(optional)</em></label><div class="sel"><select id="f-slot" name="slot"><option value="" selected>Any time</option>{sl}</select></div></div>
+        </div>
         <div class="field"><label for="f-msg">Message <em>(optional)</em></label><textarea id="f-msg" name="message" rows="3" maxlength="400" placeholder="Anything we should know — injuries, schedule, experience…"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" required><span class="box">{CHECK}</span><span>I agree to be contacted about my enquiry and accept the <a href="#footer">Privacy Policy</a>.</span></label><p class="err" role="alert"></p>
         <div class="form__alert" id="formAlert" role="alert" hidden><b>Couldn’t send your request.</b> Please check your connection and try again, or call us on +91 XXXXX XXXXX.</div>
@@ -792,8 +794,8 @@ TAIL = """
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="js/components.js?v=31" defer></script><script src="js/scroll.js?v=31" defer></script><script src="js/animations.js?v=31" defer></script>
-<script src="js/interactions.js?v=31" defer></script><script src="js/main.js?v=31" defer></script>
+<script src="js/components.js?v=32" defer></script><script src="js/scroll.js?v=32" defer></script><script src="js/animations.js?v=32" defer></script>
+<script src="js/interactions.js?v=32" defer></script><script src="js/main.js?v=32" defer></script>
 </body></html>"""
 
 SITE = 'https://www.example.com/'
@@ -822,7 +824,7 @@ def head(title, desc, fname, preload=False, schema=False):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 {pre}<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=31"><link rel="stylesheet" href="css/animations.css?v=31"><link rel="stylesheet" href="css/responsive.css?v=31">
+<link rel="stylesheet" href="css/style.css?v=32"><link rel="stylesheet" href="css/animations.css?v=32"><link rel="stylesheet" href="css/responsive.css?v=32">
 <script>try{{history.scrollRestoration='manual'}}catch(e){{}}document.documentElement.classList.add('js');setTimeout(function(){{if(!window.gsap){{document.documentElement.classList.remove('js')}}}},5000);</script>
 {sc}</head>
 <body{body_cls}>"""

@@ -1269,3 +1269,15 @@ body { font-size: clamp(16px, .5vw + 11.6px, 18px); }
   .intro__text { font-size: clamp(1.9rem, 8.4vw, 2.5rem); }
   .formcard { padding: 18px 14px; }
 }
+
+/* =================== v17: select dropdowns in the form =================== */
+.form__row--3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sel { position: relative; }
+.sel::after { content: ''; position: absolute; right: 16px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); pointer-events: none; transition: transform .3s var(--ease); }
+.sel:focus-within::after { transform: rotate(225deg); margin-top: -2px; }
+.sel select { width: 100%; appearance: none; -webkit-appearance: none; font: inherit; font-size: .94rem; font-weight: 600; color: var(--ink); background: #F5F5F2; border: 1.5px solid transparent; border-radius: 12px; padding: 13px 38px 13px 14px; cursor: pointer; text-overflow: ellipsis; transition: background .3s, border-color .3s, box-shadow .3s; }
+.sel select:hover { background: #EFEFE9; }
+.sel select:focus { outline: 0; background: #fff; border-color: var(--ink); box-shadow: 0 0 0 4px rgba(200,240,49,.7); }
+.sel select:invalid { color: #8a8a85; font-weight: 500; }
+.field.has-error .sel select { border-color: #C0321B; background: #FFF3F0; }
+@media (max-width: 767px) { .form__row--3 { grid-template-columns: 1fr; gap: 14px; } }

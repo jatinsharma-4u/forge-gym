@@ -5,6 +5,8 @@ Multi-page, light-theme gym site: cinematic hero with in-hero navbar, pinned fac
 
 HTML5 + CSS3 + Vanilla JS · GSAP · ScrollTrigger · Lenis · **light theme only**
 
+**Type:** Big Shoulders Display (headlines) + Manrope (UI/body).
+
 ## Run
 Serve the folder with any static server (e.g. `python -m http.server 5173`) and open `index.html`.
 Needs internet for Google Fonts, GSAP/Lenis (CDN) and the Unsplash sample photos.

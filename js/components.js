@@ -146,7 +146,7 @@ window.GYM = window.GYM || {};
       name: (f) => (f.name.value.trim().length >= 2 ? '' : 'Please enter your full name.'),
       phone: (f) => (/^[6-9]\d{9}$/.test(f.phone.value.replace(/\D/g, '')) ? '' : 'Enter a valid 10-digit mobile number.'),
       email: (f) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim()) ? '' : 'Enter a valid email address.'),
-      goal: (f) => (f.querySelector('[name="goal"]:checked') ? '' : 'Please pick your main goal.'),
+      goal: (f) => (f.goal.value ? '' : 'Please pick your main goal.'),
       consent: (f) => (f.consent.checked ? '' : 'Please accept to continue.'),
     };
     const holder = (name) => {
